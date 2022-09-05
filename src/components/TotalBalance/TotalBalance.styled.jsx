@@ -26,7 +26,7 @@ export const TotalBalanceMoneySign = styled.span`
     margin-bottom: 11px;
     color: var(--black);
 `;
-export const TotalBalanceValue = styled.span`
+export const TotalBalanceValueArea = styled.span`
     font-family: var(--secondaryFont);
     font-weight: var(--bold);
     font-size: 30px;

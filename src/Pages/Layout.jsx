@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Section, Container, Header, NavigationBar } from "components";
-import axios from "axios";
+
 
 
 
@@ -23,11 +23,11 @@ export const Layout = () => {
             </nav>
 
             <main className="main">
-                    <button type="button" style={{width: 60, height: 60, backgroundColor: "green", }} onClick={async () => {
+                    {/* <button type="button" style={{width: 60, height: 60, backgroundColor: "green", }} onClick={async () => {
                        const response = await axios.get("https://eyeshield-wallet-server-app.herokuapp.com/transactions/all");
 
                        console.log(response.data)
-                    }}></button>
+                    }}></button> */}
                 <Outlet/>
             </main>
 

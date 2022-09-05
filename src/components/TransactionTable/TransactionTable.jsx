@@ -2,21 +2,23 @@ import { TransactionTableList, TransactionTableItem } from './TransactionTable.s
 import { TransactionCard } from './TransactionTableItem/TransactionCard';
 
 
-export const TransactionTable = () => {
+export const TransactionTable = ({allTransactions = ''}) => {
 
 
 
     return (
         <TransactionTableList>
+            {allTransactions !== '' && allTransactions.map(item => {
 
-            <TransactionTableItem>
-                <TransactionCard/>
-            </TransactionTableItem>
 
-            <TransactionTableItem>
-                <TransactionCard/>
-            </TransactionTableItem>
-            
+
+
+                return (
+                    <TransactionTableItem key={item._id}>
+                        <TransactionCard {...item}/>
+                    </TransactionTableItem>
+                )
+            })}
         </TransactionTableList>
     )
 }

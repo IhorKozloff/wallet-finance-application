@@ -36,7 +36,7 @@ export const TransactionCardListItem = styled.li`
         font-size: 16px;
         line-height: 24px;
         &.sum {
-            color: var(--pink);
+            color: ${(props => props.type === "income" ? "var(--green)" : "var(--pink)")};
         }
     }
 `;

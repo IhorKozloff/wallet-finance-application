@@ -9,7 +9,7 @@ import { ModalTransactionSelectButton, GreenLargeButtonStyled, BlueFormButtonSty
 import { Formik, Form } from 'formik';
 
 
-export const TransactionAddForm = ({showBarCtrl}) => {
+export const TransactionAddForm = ({setTransactionAddData, showBarCtrl}) => {
     const [ dataFormDate, setaDataFormDate] = useState('');
     const [category, setCategory] = useState();
     const [ formsStatus, setFormsStatus] = useState("income");
@@ -44,8 +44,6 @@ export const TransactionAddForm = ({showBarCtrl}) => {
 
 
     const onSelectChange = (selectValue) => {
-        console.log('Сработала функция в ExpenseForm на изменение селкта')
-        console.log(selectValue)
         setCategory(selectValue);
     }
     const onSubmit = ({sum = '', comment = ''}, actions) => {
@@ -62,8 +60,11 @@ export const TransactionAddForm = ({showBarCtrl}) => {
             return newDateObj
         }
 
-        const newTransactionDataSet = {sum, comment, date: dateToObjectConverter(dataFormDate), category};
+        const newTransactionDataSet = {type: formsStatus, category, sum, comment, date: dateToObjectConverter(dataFormDate)};
         console.log(newTransactionDataSet)
+        setTransactionAddData(newTransactionDataSet);
+        actions.resetForm();
+        showBarCtrl();
 
 
     }

@@ -1,6 +1,6 @@
 import { TransactionCardList, TransactionCardListItem } from './TransactionCard.styled';
 
-export const TransactionCard = () => {
+export const TransactionCard = ({_id, date, comment, sum, category, type, balance}) => {
 
 
 
@@ -10,32 +10,32 @@ export const TransactionCard = () => {
             <TransactionCardList>
                 <TransactionCardListItem>
                     <span className='transaction__tittle date'>Date</span>
-                    <span className='transaction__value date'>04.01.19</span>
+                    <span className='transaction__value date'>{date.day}/{date.month}/{date.year}</span>
                 </TransactionCardListItem>
 
                 <TransactionCardListItem>
                     <span className='transaction__tittle type'>Type</span>
-                    <span className='transaction__value type'>-</span>
+                    <span className='transaction__value type'>{type === "income" ? "+" : "-"}</span>
                 </TransactionCardListItem>
 
                 <TransactionCardListItem>
                     <span className='transaction__tittle category'>Category</span>
-                    <span className='transaction__value category'>Other</span>
+                    <span className='transaction__value category'>{category}</span>
                 </TransactionCardListItem>
 
                 <TransactionCardListItem>
                     <span className='transaction__tittle comment'>Comment</span>
-                    <span className='transaction__value comment'>Gift of you life</span>
+                    <span className='transaction__value comment'>{comment}</span>
                 </TransactionCardListItem>
 
-                <TransactionCardListItem>
+                <TransactionCardListItem type={type}>
                     <span className='transaction__tittle sum'>Sum</span>
-                    <span className='transaction__value sum'>300.00</span>
+                    <span className='transaction__value sum'>{sum}</span>
                 </TransactionCardListItem>
 
                 <TransactionCardListItem>
                     <span className='transaction__tittle balance'>Balance</span>
-                    <span className='transaction__value balance'>6 900.00</span>
+                    <span className='transaction__value balance'>{balance}</span>
                 </TransactionCardListItem>
 
             </TransactionCardList>

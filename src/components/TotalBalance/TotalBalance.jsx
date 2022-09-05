@@ -1,6 +1,6 @@
-import { TotalBalanceWrapper, TotalBalanceTittleText, TotalBalanceValueWrapper, TotalBalanceMoneySign, TotalBalanceValue} from './TotalBalance.styled';
+import { TotalBalanceWrapper, TotalBalanceTittleText, TotalBalanceValueWrapper, TotalBalanceMoneySign, TotalBalanceValueArea} from './TotalBalance.styled';
 
-export const TotalBalance = () => {
+export const TotalBalance = ({totalBalanceValue}) => {
 
 
 
@@ -11,7 +11,7 @@ export const TotalBalance = () => {
 
             <TotalBalanceValueWrapper className="total-balance__value-wrapper">
                 <TotalBalanceMoneySign className="total-balance__money-sign">₴</TotalBalanceMoneySign>
-                <TotalBalanceValue className="total-balance__value">24 000.00</TotalBalanceValue>
+                <TotalBalanceValueArea className="total-balance__value">{totalBalanceValue}</TotalBalanceValueArea>
             </TotalBalanceValueWrapper>
             
         </TotalBalanceWrapper>

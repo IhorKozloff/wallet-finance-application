@@ -1,16 +1,25 @@
 import { TransactionAddForm, ButtonRound } from "components";
 import { FormEnabledButtonWrapper } from "./FormBar.styled";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { onAddTransactionAPI } from "API";
 
 export const FormBar = () => {
 
     const [enabledBarStatus, setEnabledBarStatus] = useState(false);
-
+    const [transactionAddData , setTransactionAddData] = useState('')
 
     const showBarCtrl = () => {
         setEnabledBarStatus(!enabledBarStatus);
-        console.log(`showBarCtrl activated`)
     }
+
+    useEffect(() => {
+        if (transactionAddData === '') {
+            return
+        }
+        onAddTransactionAPI(transactionAddData);
+        setTransactionAddData('')
+
+    },[transactionAddData])
 
     return(
         <>
@@ -18,7 +27,7 @@ export const FormBar = () => {
                 <ButtonRound operationType="income" type="button" className="form-bar__enabled-button" action={showBarCtrl}/>
             </FormEnabledButtonWrapper>
                 
-            {enabledBarStatus === true && <TransactionAddForm showBarCtrl={showBarCtrl}/>}
+            {enabledBarStatus === true && <TransactionAddForm setTransactionAddData={setTransactionAddData} showBarCtrl={showBarCtrl}/>}
         </>
     )
 }
