@@ -7,3 +7,4 @@ export * from 'components/ExchangeRates/ExchangeRates';
 export * from 'components/TransactionsForm/TransactionAddForm';
 export * from 'components/FormBar/FormBar';
 export * from 'components/SmallComponents';
+export * from 'components/AuthForms/RegisterForm/RegisterForm';

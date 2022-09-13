@@ -5,14 +5,7 @@ export const HeaderWrapper = styled.div`
     display: flex;
     justify-content: space-between;
 `;
-export const LogoWrapper = styled.ul`
-    display: flex;
-    align-items: center;
-    
-    & li:first-of-type {
-        margin-right: 16px;
-    }
-`;
+
 export const LogoutBtn = styled.button`
     height: 18px;
 
@@ -28,6 +21,11 @@ export const LogoutBtn = styled.button`
 export const UserName = styled.span`
     color: var(--gray);
     margin-right: 8px;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--black);
+    }
 `;
 export const AuthNavigate = styled.div`
     display: flex;

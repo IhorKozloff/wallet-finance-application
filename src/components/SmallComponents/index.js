@@ -4,3 +4,4 @@ export * from "../TransactionsForm/ModalTransactionSelectButton/ModalTransaction
 export * from "../TransactionsForm/ModalDatePicker/ModalDatePicker";
 export * from "../SmallComponents/FormButtonStyles/GreenFormButtonStyled.styled";
 export * from "../SmallComponents/FormButtonStyles/BlueFormButtonStyled.styled";
+export * from "./WalletLogo/WalletLogo";

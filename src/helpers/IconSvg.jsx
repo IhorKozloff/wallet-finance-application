@@ -28,7 +28,7 @@ export const IconSVG = ({id, className, width, height}) => {
         )
         case 'form-email-icon':
         return (
-            <svg id="icon-form-email" viewBox="0 0 32 32" width={width || "32"} height={height || "32"}>
+            <svg id="form-email-icon" viewBox="0 0 32 32" width={width || "32"} height={height || "32"}>
                 <path fill="#e0e0e0" d="M26.24 5.76h-20.48c-1.408 0-2.547 1.152-2.547 2.56l-0.013 15.36c0 1.408 1.152 2.56 2.56 2.56h20.48c1.408 0 2.56-1.152 2.56-2.56v-15.36c0-1.408-1.152-2.56-2.56-2.56zM26.24 10.88l-10.24 6.4-10.24-6.4v-2.56l10.24 6.4 10.24-6.4v2.56z"></path>
             </svg>  
         )

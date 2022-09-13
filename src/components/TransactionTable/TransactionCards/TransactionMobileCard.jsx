@@ -1,11 +1,14 @@
-import { TransactionCardList, TransactionCardListItem } from './TransactionCard.styled';
+import { TransactionCardList, TransactionCardListItem } from './TransactionMobileCard.styled';
 
-export const TransactionCard = ({_id, date, comment, sum, category, type, balance}) => {
+export const TransactionMobileCard = ({_id, date, comment, sum, category, type, balance}) => {
 
 
 
 
     return (
+
+
+
 
             <TransactionCardList>
                 <TransactionCardListItem>
@@ -41,3 +44,12 @@ export const TransactionCard = ({_id, date, comment, sum, category, type, balanc
             </TransactionCardList>
     )
 }
+        //     <TransactionCardListItem className='transaction-card-list-item content'>
+        //         <span className='transaction__value date'>{date.day}/{date.month}/{date.year}</span>
+        //         <span className='transaction__value type'>{type === "income" ? "+" : "-"}</span>
+        //         <span className='transaction__value category'>{category}</span>
+        //         <span className='transaction__value comment'>{comment}</span>
+        //         <span className='transaction__value sum'>{sum}</span>
+        //         <span className='transaction__value balance'>{balance}</span>
+        //     </TransactionCardListItem>
+        // </TransactionCardList> 

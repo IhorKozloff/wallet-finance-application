@@ -11,24 +11,13 @@ export const HomePage = () => {
     const getAllTransactionAndSet = async () => {
 
         const transactionsSort = (data) => {
-            console.log('Сработала функция сортировки')
-            // const dateArr = [...data].map( item => {
-            //    return new Date(item.date.year, item.date.month, item.date.day)
-            // })
-            // console.log(dateArr)
-
-            // const sortedDateArr = [...dateArr].sort((a, b) => a - b)
-            // console.log(sortedDateArr)
             return [...data].sort((a,b) => new Date(a.date.year, a.date.month, a.date.day) - new Date(b.date.year, b.date.month, b.date.day));
-
         }
-
 
         const {data} = await getAllTransactionsAPI();
 
-        
-
         const sortedData = transactionsSort(data.result);
+
         const calculatedBalance = sortedData.reduce((balanceCount, item) => {
 
             if (item.type === "income") {
@@ -40,11 +29,10 @@ export const HomePage = () => {
             }
             return balanceCount
             
-        }, 0)
-        console.log(calculatedBalance)
+        }, 0);
 
         setAllTransactions(sortedData);
-        setTotalBalanceValue(calculatedBalance)
+        setTotalBalanceValue(calculatedBalance);
     }
 
     useEffect(() => {

@@ -1,6 +1,7 @@
 import { IconSVG } from "helpers/IconSvg"
-
-import {HeaderWrapper, LogoWrapper, LogoutBtn, UserName, AuthNavigate } from "./Header.styled"
+import { Link } from "react-router-dom"
+import { WalletLogo } from "components";
+import {HeaderWrapper, LogoutBtn, UserName, AuthNavigate } from "./Header.styled"
 
 
 
@@ -9,16 +10,12 @@ export const Header = () => {
 
     return (
         <HeaderWrapper className="header-wrapper">
-            <LogoWrapper className="logo">
-                <li>
-                    <IconSVG id="logo-icon" className="logo__icon" height="30" width="30"></IconSVG>
-                </li>
-                <li>
-                    <IconSVG id="icon-Wallet" className="logo__text" height="17" width="74"></IconSVG>
-                </li>
-            </LogoWrapper>
+
+            <WalletLogo/>
 
             <AuthNavigate className="user-auth">
+                <Link to="register" style={{marginRight: "10px"}}>Register</Link>
+                <Link to="login" style={{marginRight: "10px"}}>Login</Link>
                 <UserName className="user-auth__name">Name</UserName>
                 <span className="user-auth__separator"></span>
                 <LogoutBtn className="user-auth__logout-btn logout_btn">
