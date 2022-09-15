@@ -7,10 +7,10 @@ export const WalletLogo = () => {
     return (
         <LogoWrapper className="logo">
             <li>
-                <IconSVG id="logo-icon" className="logo__icon" height="30" width="30"></IconSVG>
+                <IconSVG id="logo-icon" className="logo__icon"></IconSVG>
             </li>
             <li>
-                <IconSVG id="icon-Wallet" className="logo__text" height="17" width="74"></IconSVG>
+                <IconSVG id="icon-Wallet" className="logo__text"></IconSVG>
             </li>
         </LogoWrapper>
     )

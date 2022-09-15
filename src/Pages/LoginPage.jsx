@@ -1,13 +1,12 @@
-import { AuthContainer, AuthSection, AuthTittleWrapper, RegisterForm } from 'components'
+import { AuthContainer, AuthSection, AuthTittleWrapper, LoginForm } from 'components'
 import Media from 'react-media';
 
-export const RegisterPage = () => {
+export const LoginPage = () => {
 
 
     return (
-        <AuthSection className='register-section'>
-            <AuthContainer className='container register-page-container'>
-
+        <AuthSection className='login-section'>
+            <AuthContainer className='container login-page-container'>
                 <Media query="(min-width: 768px)" render={() =>
                     (
                         <AuthTittleWrapper>
@@ -15,9 +14,7 @@ export const RegisterPage = () => {
                         </AuthTittleWrapper>
                     )}
                 />
-                
-                <RegisterForm/>
-                
+                <LoginForm/>
             </AuthContainer>
         </AuthSection>
     )

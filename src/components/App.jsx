@@ -1,5 +1,5 @@
 import { Routes, Route} from "react-router-dom"
-import { Layout, HomePage, StatisticPage, ExchangeRatesPage, RegisterPage } from 'Pages';
+import { Layout, HomePage, StatisticPage, ExchangeRatesPage, RegisterPage, LoginPage } from 'Pages';
 
 
 export const App = () => {
@@ -14,6 +14,7 @@ export const App = () => {
         <Route path="exchange-rates" element={<ExchangeRatesPage/>}/>
       </Route>
       <Route path="register" element={<RegisterPage/>}/>
+      <Route path="login" element={<LoginPage/>}/>
     </Routes>
   );
 };
