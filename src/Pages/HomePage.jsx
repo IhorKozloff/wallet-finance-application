@@ -7,7 +7,7 @@ import { transactionsSortDateAscending, calculateBalance } from 'helpers';
 
 export const HomePage = () => {
  
-    const { data, isLoading  } = useSelector(state => state.allTransactionsStoreData);
+    const { data  } = useSelector(state => state.allTransactionsStoreData);
     
     
     const [dataToRender, setDataToRender] = useState(null);
