@@ -1,8 +1,27 @@
-import { AuthContainer, AuthSection, AuthTittleWrapper, RegisterForm } from 'components'
+import { AuthContainer, AuthSection, AuthTittleWrapper, RegisterForm } from 'components';
 import Media from 'react-media';
+
+import { passwordСomparison } from "helpers";
+import { userRegisterAPI } from "API/authAPI";
 
 export const RegisterPage = () => {
 
+
+const onSubmitRegisterForm = async (userRegisterData) => {
+
+    if (passwordСomparison(userRegisterData.password, userRegisterData.passwordConfirm) === false) {
+        return alert('Password is not confirmed');
+    };
+
+    const serverSendData = {
+        name: userRegisterData.firstName,
+        email: userRegisterData.email,
+        password: userRegisterData.password
+    }
+
+    await userRegisterAPI(serverSendData);
+}
+    
 
     return (
         <AuthSection className='register-section'>
@@ -16,7 +35,7 @@ export const RegisterPage = () => {
                     )}
                 />
                 
-                <RegisterForm/>
+                <RegisterForm onSubmitRegisterForm={onSubmitRegisterForm}/>
                 
             </AuthContainer>
         </AuthSection>

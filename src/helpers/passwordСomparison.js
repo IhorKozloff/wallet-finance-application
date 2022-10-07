@@ -1,0 +1,1 @@
+export const passwordСomparison = (password, confirmedPassword) => password === confirmedPassword ? true : false;

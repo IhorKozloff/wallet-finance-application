@@ -85,3 +85,36 @@ export const RangeSwitcherBtn = styled.input.attrs({type: 'range'})`
 
     }
 `;
+
+export const ConfirmButton = styled.button`
+width: 100%;
+height: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+text-transform: uppercase;
+color: var(--white);
+background-color: var(--green);
+border-radius: 20px;
+
+&:active {
+transform: scale(0.9);
+}
+margin-bottom: 20px;
+`;
+export const CancelButton = styled.button`
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: var(--active-blue);
+    border: 1px solid var(--active-blue);
+    border-radius: 20px;
+    text-decoration: none;
+
+    &:active {
+        transform: scale(0.9);
+    }
+`;

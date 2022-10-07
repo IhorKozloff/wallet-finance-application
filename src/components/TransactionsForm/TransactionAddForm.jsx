@@ -1,11 +1,16 @@
-import { TransactionAddFormWrapper, FormTittle, CustomRadioButton, TransactionAddFormContainer, ModalTextInput, FormButtonsList, FormChangerWrapper, CustomRadioButtonWrapper, RangeSwitcherBtn } from './TransactionAddForm.styled';
+import { 
+    TransactionAddFormWrapper, FormTittle, CustomRadioButton, TransactionAddFormContainer, 
+    ModalTextInput, FormButtonsList, FormChangerWrapper, CustomRadioButtonWrapper, 
+    RangeSwitcherBtn 
+} from './TransactionAddForm.styled';
+
 import { ModalDatePicker } from './ModalDatePicker/ModalDatePicker'
 import { createPortal } from 'react-dom';
 import { useState, useRef} from "react"
 import { categoriesDataSet } from '../../assets/categories';
 import { categoriesIncomeDataSet } from '../../assets/categoriesIncome';
-import { ModalTransactionSelectButton, GreenLargeButtonStyled, BlueFormButtonStyled } from "components";
-
+import { ModalTransactionSelectButton } from "components";
+import { ConfirmButton, CancelButton } from "./TransactionAddForm.styled";
 import { Formik, Form } from 'formik';
 
 
@@ -127,10 +132,10 @@ export const TransactionAddForm = ({setTransactionAddData, showBarCtrl}) => {
 
                                     <FormButtonsList className='form-btns-wrapper'>
                                         <li>
-                                            <GreenLargeButtonStyled type='submit'>Add</GreenLargeButtonStyled>
+                                            <ConfirmButton type='submit'>Add</ConfirmButton>
                                         </li>
                                         <li>
-                                            <BlueFormButtonStyled type='button' onClick={showBarCtrl}>Cancel</BlueFormButtonStyled>
+                                            <CancelButton type='button' onClick={showBarCtrl}>Cancel</CancelButton>
                                         </li>
                                     </FormButtonsList>
                             </Form>

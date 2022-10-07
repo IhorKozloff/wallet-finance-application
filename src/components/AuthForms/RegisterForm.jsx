@@ -3,7 +3,7 @@ import { Formik } from "formik"
 import {  WalletLogo } from 'components';
 import { AuthButton, RedirectButton, AuthFormWrapper, AuthFormInput, FieldsList } from "./AuthForm.styled"
 import { IconSVG } from "helpers/IconSvg";
-export const RegisterForm = () => {
+export const RegisterForm = ({onSubmitRegisterForm}) => {
 
     const initialValues = {
         email:'',
@@ -13,7 +13,7 @@ export const RegisterForm = () => {
     }
 
     const onSubmitForm = (values, actions) => {
-        console.log(values)
+        onSubmitRegisterForm(values)
         actions.resetForm()
     }
 
@@ -45,7 +45,7 @@ export const RegisterForm = () => {
 
 
                 <AuthButton type='submit' className="register-form__register-button">register</AuthButton>
-                <RedirectButton type='button'>login</RedirectButton>
+                <RedirectButton to='login'>login</RedirectButton>
 
                         
             </AuthFormWrapper>

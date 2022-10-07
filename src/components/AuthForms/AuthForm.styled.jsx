@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { GreenLargeButtonStyled, BlueFormButtonStyled } from 'components';
-import { Form, Field } from "formik"
+import { Link } from 'react-router-dom';
+import { Form, Field } from "formik";
 
 export const AuthFormWrapper = styled(Form)`
     width: 100%;
@@ -74,7 +74,36 @@ export const AuthFormInput = styled(Field)`
 
 
 
-export const AuthButton = styled(GreenLargeButtonStyled)`
+export const AuthButton = styled.button`
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: var(--white);
+    background-color: var(--green);
+    border-radius: 20px;
+
+    &:active {
+    transform: scale(0.9);
+    }
     margin-bottom: 20px;
 `;
-export const RedirectButton = styled(BlueFormButtonStyled)``;
+
+export const RedirectButton = styled(Link)`
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: var(--active-blue);
+    border: 1px solid var(--active-blue);
+    border-radius: 20px;
+    text-decoration: none;
+
+    &:active {
+        transform: scale(0.9);
+    }
+`;

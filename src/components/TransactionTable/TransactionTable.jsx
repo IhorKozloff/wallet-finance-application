@@ -3,7 +3,7 @@ import { TransactionMobileCard } from './TransactionCards/TransactionMobileCard'
 import { TransactionDesctopCard } from './TransactionCards/TransactionDesctopCard';
 import Media from 'react-media';
 
-export const TransactionTable = ({allTransactions = ''}) => {
+export const TransactionTable = ({dataToRender}) => {
 
 
 
@@ -27,7 +27,7 @@ export const TransactionTable = ({allTransactions = ''}) => {
         
             
 
-            {allTransactions !== '' && allTransactions.map(item => {
+            {dataToRender !== null && dataToRender.map(item => {
                 return (
                     <TransactionTableItem key={item._id}>
 
