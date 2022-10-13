@@ -10,7 +10,5 @@ export const fetchLogin = createAsyncThunk('fetchLogin', async (authData) => {
 });
 
 export const fetchLogout = createAsyncThunk('fetchLogout', async (token) => {
-    const response = await userLogoutAPI(token);
-    console.log(response)
-    return response
+    await userLogoutAPI(token);
 });

@@ -2,6 +2,9 @@ import { createReducer, combineReducers } from "@reduxjs/toolkit";
 import { fetchLogin, fetchLogout } from "./authOperations";
 import Notiflix from 'notiflix';
 
+
+
+
 const user = createReducer(
     {
         name: null,
@@ -15,6 +18,7 @@ const user = createReducer(
             state.email = action.payload.email;
             state.token = action.payload.token;
         },
+
         [fetchLogout.fulfilled]: state => {
             state.name = null;
             state.email = null;
@@ -52,9 +56,11 @@ const errorLogin = createReducer(
     }
 )
 
+
 export default combineReducers({
     user,
     isLoading,
     isLogin,
-    errorLogin
+    errorLogin,
+
 });

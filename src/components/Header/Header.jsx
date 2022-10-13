@@ -9,11 +9,9 @@ export const Header = () => {
     const { name, token } = useSelector(state => state.userStatus.user);
     const dispatch = useDispatch();
 
-
     const onLogoutClick = async () => {
-        console.log('logout clicked')
         dispatch(fetchLogout(token));
-    }
+    };
 
     return (
         <HeaderWrapper className="header-wrapper">

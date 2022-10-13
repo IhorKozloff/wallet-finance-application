@@ -1,6 +1,5 @@
 import { AuthContainer, AuthSection, AuthTittleWrapper, RegisterForm } from 'components';
 import Media from 'react-media';
-import { useNavigate } from 'react-router-dom';
 import { userRegisterAPI } from "API/authAPI";
 import { useDispatch } from 'react-redux';
 import { fetchLogin } from "redux/authOperations";
@@ -20,13 +19,13 @@ const onSubmitRegisterForm = async (userRegisterData) => {
         email: userRegisterData.email,
         password: userRegisterData.password
     }
+
     setLoaderStatus(true)
+
     const resStatus = await userRegisterAPI(serverSendData);
    
-    console.log(resStatus);
 
     if (resStatus) {
-        
         dispatch(fetchLogin({email: serverSendData.email, password: serverSendData.password}))
     } else {
         setLoaderStatus(false);
