@@ -13,8 +13,14 @@ export const RegisterForm = ({onSubmitRegisterForm}) => {
     }
 
     const onSubmitForm = (values, actions) => {
-        onSubmitRegisterForm(values)
-        actions.resetForm()
+        
+        if (values.password === values.passwordConfirm) {
+            onSubmitRegisterForm(values);
+            actions.resetForm();
+        } else {
+            alert("Passwords do not match");
+        }
+        
     }
 
 

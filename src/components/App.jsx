@@ -1,13 +1,12 @@
-import { Routes, Route} from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import { Layout, HomePage, StatisticPage, ExchangeRatesPage, RegisterPage, LoginPage } from 'Pages';
 
-import { useDispatch } from "react-redux";
-import { fetchAllTransactions } from "redux/operations";
+
+
+import PublickRoute from "routes/public";
 
 export const App = () => {
 
-  const dispatch = useDispatch();
-  dispatch(fetchAllTransactions());
 
   return (
 
@@ -19,8 +18,8 @@ export const App = () => {
 
 
       </Route>
-      <Route path="register" element={<RegisterPage/>}/>
-        <Route path="login" element={<LoginPage/>}/>
+      <Route path="register" element={<PublickRoute><RegisterPage/></PublickRoute>}/>
+      <Route path="login" element={<PublickRoute><LoginPage/></PublickRoute>}/>
       
 
     </Routes>

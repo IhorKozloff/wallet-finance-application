@@ -4,7 +4,7 @@ import {  WalletLogo } from 'components';
 import { AuthButton, RedirectButton, AuthFormWrapper, AuthFormInput, FieldsList } from "./AuthForm.styled"
 import { IconSVG } from "helpers/IconSvg";
 
-export const LoginForm = () => {
+export const LoginForm = ({onSubmitLoginForm}) => {
 
     const initialValues = {
         email:'',
@@ -13,8 +13,8 @@ export const LoginForm = () => {
         firstName:''
     }
 
-    const onSubmitForm = (values, actions) => {
-        console.log(values)
+    const onSubmitForm = ({email, password}, actions) => {
+        onSubmitLoginForm({email, password});
         actions.resetForm()
     }
 
@@ -39,7 +39,7 @@ export const LoginForm = () => {
 
 
                 <AuthButton type='submit' className="login-form__login-button">log in</AuthButton>
-                <RedirectButton type='button'>register</RedirectButton>
+                <RedirectButton to='/register'>register</RedirectButton>
 
                         
             </AuthFormWrapper>

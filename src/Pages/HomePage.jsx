@@ -1,47 +1,48 @@
 import {Container, Section, TotalBalance, TransactionTable, FormBar} from 'components'
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-
-import { transactionsSortDateAscending, calculateBalance } from 'helpers';
+import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchAllTransactions } from "redux/transactionsOperations";
 
 
 export const HomePage = () => {
- 
-    const { data  } = useSelector(state => state.allTransactionsStoreData);
-    
-    
-    const [dataToRender, setDataToRender] = useState(null);
-    const [totalValue, stTotalValue] = useState(0);
 
-
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+  
+    const { isLogin, user} = useSelector(state => state.userStatus);
+      
     useEffect(() => {
-        if (data.length === 0 ) {
-            return
-        }
+  
+      if(isLogin === true) {
+  
+        dispatch(fetchAllTransactions(user.token));
+        navigate('/')
+  
+      } else {
+        navigate('/login')
+      }
+    },[dispatch, isLogin, navigate, user.token])
 
-        const sortedData = transactionsSortDateAscending(data);
-
-        const [total, balancedData] = calculateBalance(sortedData)
-        
 
 
-        setDataToRender(balancedData);
-        stTotalValue(total);
 
-    },[data])
+
+
 
     return (
         <>
-        <Section className='home-section'>
-            <Container className='home-container'>
-                       
-            <TotalBalance totalBalanceValue={totalValue}/>
+            <Section className='home-section'>
+                <Container className='home-container'>
+                
+                        <TotalBalance/>
 
-                <TransactionTable dataToRender={dataToRender} className="transaction-table"/>
+                        <TransactionTable className="transaction-table"/>
+                        
+                        <FormBar/>
 
-                <FormBar/>
-            </Container>
-        </Section>
+                </Container>
+            </Section>
         </>
     );
 };

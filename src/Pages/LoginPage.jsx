@@ -1,7 +1,17 @@
 import { AuthContainer, AuthSection, AuthTittleWrapper, LoginForm } from 'components'
 import Media from 'react-media';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchLogin } from "redux/authOperations";
+import { FullScreenLoader } from "components";
 
 export const LoginPage = () => {
+
+    const dispatch = useDispatch();
+    const { isLoading } = useSelector(state => state.userStatus);
+
+    const onSubmitLoginForm = async (data) => {
+        dispatch(fetchLogin(data))
+    }
 
 
     return (
@@ -14,7 +24,8 @@ export const LoginPage = () => {
                         </AuthTittleWrapper>
                     )}
                 />
-                <LoginForm/>
+                <LoginForm onSubmitLoginForm={onSubmitLoginForm}/>
+                {isLoading === true && <FullScreenLoader/>}
             </AuthContainer>
         </AuthSection>
     )

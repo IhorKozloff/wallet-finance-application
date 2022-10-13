@@ -2,10 +2,11 @@ import { TransactionTableList, TransactionTableItem, TransactionTableListHeader 
 import { TransactionMobileCard } from './TransactionCards/TransactionMobileCard';
 import { TransactionDesctopCard } from './TransactionCards/TransactionDesctopCard';
 import Media from 'react-media';
+import { useCreateDataToRender } from "hooks/useCreateDataToRender";
 
 export const TransactionTable = ({dataToRender}) => {
 
-
+    const { balancedData } = useCreateDataToRender();
 
     return (
         <>
@@ -27,7 +28,7 @@ export const TransactionTable = ({dataToRender}) => {
         
             
 
-            {dataToRender !== null && dataToRender.map(item => {
+            {balancedData.length !== 0 && balancedData.map(item => {
                 return (
                     <TransactionTableItem key={item._id}>
 

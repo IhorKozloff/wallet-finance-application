@@ -9,3 +9,4 @@ export * from 'components/FormBar/FormBar';
 export * from 'components/SmallComponents';
 export * from 'components/AuthForms/RegisterForm';
 export * from 'components/AuthForms/LoginForm';
+export * from 'components/FullScreenLoader/FullScreenLoader';

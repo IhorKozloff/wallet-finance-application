@@ -1,6 +1,6 @@
 
 import { createReducer, combineReducers } from "@reduxjs/toolkit";
-import { fetchAllTransactions } from "./operations";
+import { fetchAllTransactions } from "./transactionsOperations";
 
 const data = createReducer([],{
 

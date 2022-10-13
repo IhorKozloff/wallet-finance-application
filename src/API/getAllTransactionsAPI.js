@@ -1,11 +1,13 @@
 import axios from "axios";
 
-export const getAllTransactionsAPI = async () => {
+
+export const getAllTransactionsAPI = async (token = '') => {
+
 
     try {
-        const allTransactions = await axios.get("https://eyeshield-wallet-server-app.herokuapp.com/transactions/all");
-        console.log(allTransactions.data.data.result);
-        return allTransactions.data.data.result;
+        const { data } = await axios.get("https://eyeshield-wallet-server-app.herokuapp.com/transactions/all", { headers: { Authorization: `Bearer ${token}` } });
+        console.log(data.result)
+        return data.result;
     } catch (err) {
         console.log(err);
     }

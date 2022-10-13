@@ -2,9 +2,12 @@ import { TransactionAddForm, ButtonRound } from "components";
 import { FormEnabledButtonWrapper } from "./FormBar.styled";
 import { useState, useEffect } from "react";
 import { onAddTransactionAPI } from "API";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export const FormBar = () => {
-
+    const navigate = useNavigate();
+    const { token } = useSelector(state => state.userStatus.user)
     const [enabledBarStatus, setEnabledBarStatus] = useState(false);
     const [transactionAddData , setTransactionAddData] = useState('')
 
@@ -16,10 +19,10 @@ export const FormBar = () => {
         if (transactionAddData === '') {
             return
         }
-        onAddTransactionAPI(transactionAddData);
+        onAddTransactionAPI(transactionAddData, token);
         setTransactionAddData('')
-
-    },[transactionAddData])
+        navigate('/')
+    },[navigate, token, transactionAddData])
 
     return(
         <>

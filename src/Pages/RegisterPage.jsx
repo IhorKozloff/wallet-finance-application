@@ -1,25 +1,39 @@
 import { AuthContainer, AuthSection, AuthTittleWrapper, RegisterForm } from 'components';
 import Media from 'react-media';
-
-import { passwordСomparison } from "helpers";
+import { useNavigate } from 'react-router-dom';
 import { userRegisterAPI } from "API/authAPI";
+import { useDispatch } from 'react-redux';
+import { fetchLogin } from "redux/authOperations";
+import { useState } from 'react';
+import { FullScreenLoader } from "components";
 
 export const RegisterPage = () => {
 
+const dispatch = useDispatch();
+const [loaderStatus, setLoaderStatus] = useState(false)
 
 const onSubmitRegisterForm = async (userRegisterData) => {
 
-    if (passwordСomparison(userRegisterData.password, userRegisterData.passwordConfirm) === false) {
-        return alert('Password is not confirmed');
-    };
 
     const serverSendData = {
         name: userRegisterData.firstName,
         email: userRegisterData.email,
         password: userRegisterData.password
     }
+    setLoaderStatus(true)
+    const resStatus = await userRegisterAPI(serverSendData);
+   
+    console.log(resStatus);
 
-    await userRegisterAPI(serverSendData);
+    if (resStatus) {
+        
+        dispatch(fetchLogin({email: serverSendData.email, password: serverSendData.password}))
+    } else {
+        setLoaderStatus(false);
+    }
+
+    
+
 }
     
 
@@ -36,7 +50,7 @@ const onSubmitRegisterForm = async (userRegisterData) => {
                 />
                 
                 <RegisterForm onSubmitRegisterForm={onSubmitRegisterForm}/>
-                
+                {loaderStatus === true && <FullScreenLoader/>}
             </AuthContainer>
         </AuthSection>
     )
