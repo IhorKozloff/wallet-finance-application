@@ -10,3 +10,5 @@ export * from 'components/SmallComponents';
 export * from 'components/AuthForms/RegisterForm';
 export * from 'components/AuthForms/LoginForm';
 export * from 'components/FullScreenLoader/FullScreenLoader';
+export * from 'components/DiagramTab/DiagramTab';
+export * from 'components/StatisticTable/StatisticTable';

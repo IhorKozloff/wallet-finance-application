@@ -4,8 +4,8 @@ import { calculateBalance, transactionsSortDateAscending } from "helpers";
 
 export const useCreateDataToRender = () => {
 
-    const data = useSelector(state => state.allTransactionsStoreData.data);
-    const sortedData = transactionsSortDateAscending(data);
+    const { transactions } = useSelector(state => state.allTransactionsStoreData);
+    const sortedData = transactionsSortDateAscending(transactions);
 
    const [totalBalance, balancedData] = calculateBalance(sortedData);
 

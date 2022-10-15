@@ -1,8 +1,8 @@
 
 import { createReducer, combineReducers } from "@reduxjs/toolkit";
-import { fetchAllTransactions } from "./transactionsOperations";
+import { fetchAllTransactions, fetchCategories } from "./transactionsOperations";
 
-const data = createReducer([],{
+const transactions = createReducer([],{
 
     [fetchAllTransactions.fulfilled]: (state, action) => {
         return state = action.payload;
@@ -26,8 +26,15 @@ const error = createReducer('',{
 
 });
 
+const categories = createReducer([], {
+    [fetchCategories.fulfilled]: (state, action) =>{ 
+        return state = action.payload
+    }
+})
+
 export default combineReducers({
-    data,
+    transactions,
+    categories,
     isLoading,
     error
 });
