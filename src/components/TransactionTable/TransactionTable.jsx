@@ -4,7 +4,7 @@ import { TransactionDesctopCard } from './TransactionCards/TransactionDesctopCar
 import Media from 'react-media';
 import { useCreateDataToRender } from "hooks/useCreateDataToRender";
 
-export const TransactionTable = ({dataToRender}) => {
+export const TransactionTable = () => {
 
     const { balancedData } = useCreateDataToRender();
 

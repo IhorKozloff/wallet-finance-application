@@ -16,7 +16,8 @@ import {
   import { useState, useEffect } from 'react';
   import { sumConverter } from "helpers";
 
-  export const Table = ({ dataToProps: {tableCategories = [], tableExpenseSum, tableIncomeSum} }) => {
+  export const Table = ({ dataToProps: {tableCategories, tableExpenseSum, tableIncomeSum} }) => {
+
     const [dataToRender, setDataToRender] = useState('');
   
     const [categorySortedStatus, setCategorySortedStatus] = useState('');
@@ -25,7 +26,8 @@ import {
 
   
     useEffect(() => {
-      if (tableCategories === []) {
+      if (tableCategories.length === 0) {
+        setDataToRender('')
         return;
       }
       setDataToRender(tableCategories);
@@ -102,15 +104,15 @@ import {
         <TableWrapper className="table-wrapper">
           <TableTittle className="table-tittle">
             <TableTittleBtn className="table-tittle-btn" onClick={sortByCategory}>
-              
+              Category
             </TableTittleBtn>
             <TableTittleBtn className="table-tittle-btn" onClick={sortBySum}>
-              
+              Sum
             </TableTittleBtn>
           </TableTittle>
   
           <TableContentList className="table-content-list">
-            {dataToRender !== '' &&
+            {dataToRender.length !== 0 &&
               dataToRender.map(({ categoryColor, categoryName, categorySum }) => {
                 return (
                   <TableContentItem
@@ -140,7 +142,7 @@ import {
                 className="result-item-value"
                 color={'var(--pink)'}
               >
-                {sumConverter(tableExpenseSum)}
+                {tableExpenseSum}
               </ResultItemValue>
             </TableResultItem>
   
@@ -152,7 +154,7 @@ import {
                 className="result-item-value"
                 color={'var(--green)'}
               >
-                {sumConverter(tableIncomeSum)}
+                {tableIncomeSum}
               </ResultItemValue>
             </TableResultItem>
           </TableResultList>

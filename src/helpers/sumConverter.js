@@ -1,4 +1,7 @@
 export const sumConverter = (sum) => {
+    if(sum === 0) {
+      return "0.00"
+    }
     const sumStr = sum.toFixed(2).toString();
 
     switch (sumStr.length) {

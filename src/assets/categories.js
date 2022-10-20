@@ -1,5 +1,5 @@
 export const categoriesDataSet = {
-    tittle: 'Select a category',
+    title: 'Select a category',
     data: [
       { text: 'Main', value: 'main'},
       { text: 'House', value: 'house'},

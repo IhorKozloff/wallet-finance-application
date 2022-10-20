@@ -12,7 +12,12 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
     }
 
-
+    h2 {
+        font-family: var(--secondaryFont);
+        font-weight: var(--regular);
+        font-size: 30px;
+        line-height: 45px;
+    }
     ul {
         list-style:none;
         margin: 0;

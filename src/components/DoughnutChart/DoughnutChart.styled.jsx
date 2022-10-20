@@ -1,18 +1,9 @@
 import styled from "styled-components";
-import plug from "img/statistic-plug.png"
 
-
-export const DiagramTabWrapper = styled.div`
-    padding-top: 8px;
-`;
-
-export const DoughnutPlug = styled.div`
-
+export const DoughnutChartWrapper = styled.div`
+    position: relative;
     margin-bottom: 32px;
-    background-image: url('${plug}');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+
     @media screen and (min-width: 320px) {
         width: 280px;
         height: 280px;
@@ -26,4 +17,18 @@ export const DoughnutPlug = styled.div`
         width: 288px;
         height: 288px;
     }
-`;
+
+`
+export const DoughnutChartTotalSum = styled.div`
+    display: block;
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-weight: var(--bold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`

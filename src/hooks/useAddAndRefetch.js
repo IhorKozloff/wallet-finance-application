@@ -9,8 +9,11 @@ export const useAddAndRefetch = () => {
 
     return async (data) => {
 
-        await onAddTransactionAPI(data, token);
+        const response = await onAddTransactionAPI(data, token);
+  
+        if (response) {
+            dispatch(fetchAllTransactions(token));
+        }
         
-        dispatch(fetchAllTransactions(token));
     };
 };

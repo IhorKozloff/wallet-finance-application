@@ -6,7 +6,7 @@ export const fetchAllTransactions = createAsyncThunk('fetchAllTransactions', asy
     return response
 });
 
-export const fetchCategories= createAsyncThunk('fetchCategories', async (token) => {
-    const response = await getCategoriesAPI(token);
+export const fetchCategories= createAsyncThunk('fetchCategories', async (queryParams) => {
+    const response = await getCategoriesAPI(queryParams);
     return response;
 });

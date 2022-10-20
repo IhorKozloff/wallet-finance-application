@@ -64,8 +64,13 @@ export const TransactionAddForm = ({setTransactionAddData, showBarCtrl}) => {
             console.log(newDateObj)
             return newDateObj
         }
+        let newTransactionDataSet = null;
 
-        const newTransactionDataSet = {type: formsStatus, category, sum, comment, date: dateToObjectConverter(dataFormDate)};
+        if (comment === '') {
+            newTransactionDataSet = {type: formsStatus, category, sum, comment: "-", date: dateToObjectConverter(dataFormDate)};
+        } else {
+            newTransactionDataSet = {type: formsStatus, category, sum, comment, date: dateToObjectConverter(dataFormDate)};
+        }
         console.log(newTransactionDataSet)
         setTransactionAddData(newTransactionDataSet);
         actions.resetForm();

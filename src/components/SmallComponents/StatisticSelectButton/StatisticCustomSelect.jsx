@@ -7,10 +7,18 @@ import {
   } from './StatisticCustomSelect.styled';
   import { useState, useEffect, useRef } from 'react';
 
+  const defaultDataSet = {
+    title: 'Example title',
+    data: [
+      { text: 'example text 1', value: 'example value 1'},
+      { text: 'example text 2', value: 'example value 2'},
+      { text: 'example text 3', value: 'example value 3'},
+      { text: 'example text 4', value: 'example value 4'},
+    ]
+  }
   
-  
-  export const CustomSelect = ({ items = [1,2,3], changeValue }) => {
-    const [selectedText, setSelectedTex] = useState(items.tittle);
+  export const CustomSelect = ({ items = defaultDataSet, changeValue }) => {
+    const [selectedText, setSelectedTex] = useState(items.title);
     const [openStatus, setOpenStatus] = useState(false);
     const refToggleDropDown = useRef(null);
 
@@ -23,7 +31,7 @@ import {
         return;
       }
   
-      const itemName = event.target.id;
+      const itemName = event.target.textContent;
       const itemValue = event.target.dataset.itemvalue;
   
       setSelectedTex(itemName);
@@ -77,11 +85,10 @@ import {
             }}
           >
             {items &&
-              items.data.map(({ text, value, id }) => {
+              items.data.map(({ text, value }) => {
                 return (
                   <SelectOptionsItem
                     key={text}
-                    id={id}
                     className="options__item"
                     data-itemvalue={value}
                   >
