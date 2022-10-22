@@ -107,3 +107,4 @@ export const RedirectButton = styled(Link)`
         transform: scale(0.9);
     }
 `;
+

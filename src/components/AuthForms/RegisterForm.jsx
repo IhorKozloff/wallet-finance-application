@@ -1,9 +1,13 @@
 import { Formik } from "formik"
-
 import {  WalletLogo } from 'components';
 import { AuthButton, RedirectButton, AuthFormWrapper, AuthFormInput, FieldsList } from "./AuthForm.styled"
+import { PasswordSecureLableComponent } from "./PasswordSecureLable/PasswordSecureLable";
 import { IconSVG } from "helpers/IconSvg";
+import { useState } from "react";
+
 export const RegisterForm = ({onSubmitRegisterForm}) => {
+
+    const [secureComponentData, setSecureComponentData] = useState(null)
 
     const initialValues = {
         email:'',
@@ -23,10 +27,17 @@ export const RegisterForm = ({onSubmitRegisterForm}) => {
         
     }
 
+    const onPasswordInputChange = (event) => {
+        console.log('Сработал кастомный обработчик события он ченж')
+        console.log(event.target.value)
+        console.log(event.target.value.length)
+        setSecureComponentData(event.target.value)
+    }
 
     return (
-        <Formik initialValues={initialValues} onSubmit={onSubmitForm}>
+        <Formik initialValues={initialValues} onSubmit={onSubmitForm} >
             
+            {({handleChange}) => (
             <AuthFormWrapper className='register-form'>
                 <WalletLogo/>
                 <FieldsList>
@@ -36,7 +47,17 @@ export const RegisterForm = ({onSubmitRegisterForm}) => {
                     </li>
                     <li>
                         <IconSVG id="form-password-icon"/>
-                        <AuthFormInput className="register-form__password" name="password" type="text" placeholder="Password"/>
+                        <AuthFormInput
+                            className="register-form__password"
+                            name="password"
+                            type="text" 
+                            placeholder="Password"
+                            onChange={(e) => {
+                                handleChange(e);
+                                onPasswordInputChange(e)
+                            }}
+                        />
+                        <PasswordSecureLableComponent data={secureComponentData}/>
                     </li>
                     <li>
                         <IconSVG id="form-password-icon"/>
@@ -55,6 +76,8 @@ export const RegisterForm = ({onSubmitRegisterForm}) => {
 
                         
             </AuthFormWrapper>
+    )
+            }
         </Formik>
     )
 }
