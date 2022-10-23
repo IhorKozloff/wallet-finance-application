@@ -1,12 +1,23 @@
 import styled from "styled-components";
 
-export const PasswordSecureLable = styled.div`
-    width: ${props => props.secureLableProps.width > 0 ? props.secureLableProps.width + 50 + "px" : "0px"};
-    height: 2px;
-    border-radius: 1px;
-    background-color: ${props => props.secureLableProps.color};
-    position: absolute;
-    bottom: 0;
-    left: 0;
+export const PasswordSecureLableWrapper = styled.div`
+    
 `;
-//
+
+export const PasswordSecureLable = styled.div`
+   
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+
+    height: 3px;
+    border-radius: 3px;
+
+    width: ${props => props.secureLableProps.width};
+    background-color: ${props => props.secureLableProps.color};
+
+
+    transition: all 1500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+`;
+

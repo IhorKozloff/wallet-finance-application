@@ -4,6 +4,7 @@ import { AuthButton, RedirectButton, AuthFormWrapper, AuthFormInput, FieldsList 
 import { PasswordSecureLableComponent } from "./PasswordSecureLable/PasswordSecureLable";
 import { IconSVG } from "helpers/IconSvg";
 import { useState } from "react";
+import { PasswordTooltip } from "./PasswordTooltip/PasswordTooltip";
 
 export const RegisterForm = ({onSubmitRegisterForm}) => {
 
@@ -58,6 +59,7 @@ export const RegisterForm = ({onSubmitRegisterForm}) => {
                             }}
                         />
                         <PasswordSecureLableComponent data={secureComponentData}/>
+                        <PasswordTooltip/>
                     </li>
                     <li>
                         <IconSVG id="form-password-icon"/>
@@ -72,7 +74,7 @@ export const RegisterForm = ({onSubmitRegisterForm}) => {
 
 
                 <AuthButton type='submit' className="register-form__register-button">register</AuthButton>
-                <RedirectButton to='login'>login</RedirectButton>
+                <RedirectButton to='/login'>login</RedirectButton>
 
                         
             </AuthFormWrapper>
