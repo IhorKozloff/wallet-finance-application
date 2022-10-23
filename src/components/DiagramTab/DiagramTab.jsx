@@ -1,11 +1,11 @@
-import { DiagramTabWrapper, DoughnutPlug } from "./DiagramTab.styled"
+import { DiagramTabWrapper, DoughnutPlug, StatisticContentWrapper } from "./DiagramTab.styled"
 import { Table, CustomSelect, DoughnutChart, FullScreenLoader } from 'components';
 import { useSelector, useDispatch } from "react-redux";
-import { colorizedCategory } from "helpers";
+import { colorizedCategory, sumConverter } from "helpers";
 import { useState, useEffect } from "react";
 import { monthDataSet, yearDataSet } from "assets/monthAndYear";
 import { fetchCategories } from "redux/transactionsOperations";
-import { sumConverter } from "helpers";
+
 
 export const DiagramTab = () => {
 
@@ -103,9 +103,14 @@ export const DiagramTab = () => {
             {dataToProps.tableExpenseSum !== 0 && <DoughnutChart data={dataToProps}/>}
             {dataToProps.tableExpenseSum === 0 && <DoughnutPlug/>}
             {isLoading === true && <FullScreenLoader/>}
-            <CustomSelect items={yearDataSet} changeValue={onYearSelectChange}/>
-            <CustomSelect items={monthDataSet} changeValue={onMonthSelectChange}/>
-            <Table dataToProps={dataToProps}/>
+
+            <StatisticContentWrapper>
+                <CustomSelect items={yearDataSet} changeValue={onYearSelectChange}/>
+                <CustomSelect items={monthDataSet} changeValue={onMonthSelectChange}/>
+                <Table dataToProps={dataToProps}/>
+            </StatisticContentWrapper>
+            
+
         </DiagramTabWrapper>
     ) 
 }

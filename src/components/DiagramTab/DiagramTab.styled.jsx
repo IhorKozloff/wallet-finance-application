@@ -4,6 +4,10 @@ import plug from "img/statistic-plug.png"
 
 export const DiagramTabWrapper = styled.div`
     padding-top: 8px;
+    @media screen and (min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+    }
 `;
 
 export const DoughnutPlug = styled.div`
@@ -25,5 +29,11 @@ export const DoughnutPlug = styled.div`
     @media screen and (min-width: 1280px) {
         width: 288px;
         height: 288px;
+    }
+`;
+
+export const StatisticContentWrapper = styled.div`
+    @media screen and (min-width: 768px) {
+        width: 336px;
     }
 `;
