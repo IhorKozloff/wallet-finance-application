@@ -9,15 +9,21 @@ export const Container = styled.div`
     background-color: var(--background-light-grey);
     box-sizing: border-box;
 
+    &.header-container {
+        padding: 15px 20px;
+        background-color: var(--white);
+    }
+
     @media screen and (min-width: 320px) {
         width: 320px;
 
-        padding: 12px 20px 0 20px;
+        padding: 0 20px;
 
        
     }
     @media screen and (min-width: 768px) {
         width: 768px;
+        padding: 0 32px;
 
     }
     @media screen and (min-width: 1280px) {
@@ -26,11 +32,6 @@ export const Container = styled.div`
 
 
 
-    &.header-container {
-        padding: 15px 20px;
-        background-color: var(--white);
-    }
-    &.navigation-container {
-        padding:12px 0 0 0;
-    }
+    
+
 `;

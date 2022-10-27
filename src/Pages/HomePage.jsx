@@ -1,9 +1,9 @@
-import {Container, Section, TotalBalance, TransactionTable, FormBar} from 'components'
+import {Container, Section, TransactionTable, FormBar} from 'components'
 import { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllTransactions } from "redux/transactionsOperations";
-
+import Media from 'react-media';
 
 export const HomePage = () => {
 
@@ -32,17 +32,26 @@ export const HomePage = () => {
 
     return (
         <>
-            <Section className='home-section'>
+         <Media query="(min-width: 1280px)" render={() =>
+            (
+              <>
+                <TransactionTable className="transaction-table"/> 
+                <FormBar/>
+              </>
+            )}
+          />
+          <Media query="(max-width: 1279px)" render={() =>
+            (
+              <Section className='home-section'>
                 <Container className='home-container'>
-                
-                        <TotalBalance/>
-
                         <TransactionTable className="transaction-table"/>
-                        
                         <FormBar/>
-
                 </Container>
-            </Section>
+              </Section>
+            )}
+          />
+
+            
         </>
     );
 };

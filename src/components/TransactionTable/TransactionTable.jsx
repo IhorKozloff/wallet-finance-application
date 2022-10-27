@@ -1,4 +1,4 @@
-import { TransactionTableList, TransactionTableItem, TransactionTableListHeader } from './TransactionTable.styled';
+import { TransactionTableWrapper, TransactionTableList, TransactionTableItem, TransactionTableListHeader } from './TransactionTable.styled';
 import { TransactionMobileCard } from './TransactionCards/TransactionMobileCard';
 import { TransactionDesctopCard } from './TransactionCards/TransactionDesctopCard';
 import Media from 'react-media';
@@ -9,7 +9,7 @@ export const TransactionTable = () => {
     const { balancedData } = useCreateDataToRender();
 
     return (
-        <>
+        <TransactionTableWrapper>
 
         <Media query="(min-width: 768px)" render={() =>
           (
@@ -50,6 +50,6 @@ export const TransactionTable = () => {
             })}
 
         </TransactionTableList>
-</>
+</TransactionTableWrapper>
     )
 }

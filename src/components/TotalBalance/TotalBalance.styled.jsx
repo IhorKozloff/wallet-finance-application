@@ -4,7 +4,13 @@ export const TotalBalanceWrapper = styled.div`
     background-color: var(--white);
     border-radius: 30px;
     padding: 8px 0 11px 32px;
-    margin-bottom: 32px;
+    margin-top: 28px;
+   
+
+    @media screen and (max-width: 767px) {
+        margin-top: 12px;
+    }
+    
 `;
 export const TotalBalanceTittleText = styled.p`
     font-family: var(--baseFont);

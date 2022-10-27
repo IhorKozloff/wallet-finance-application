@@ -1,16 +1,27 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const NavigationBarWrapper = styled.div`
 
 `; 
 export const NavigationList = styled.ul`
-    display: flex;
-    justify-content: center;
+    
+    @media screen and (max-width: 767px) {
+        display: flex;
+        justify-content: center;
+    }
+    
 `;
 export const NavigationItem = styled.li`
+   
+    @media screen and (max-width: 767px) {
+        &:not(:last-of-type) {
+            margin-right: 32px;
+        }
+    }
+
     &:not(:last-of-type) {
-        margin-right: 32px;
+        margin-bottom: 12px;
     }
 `;
 export const NavigationButton = styled.button`
@@ -27,6 +38,16 @@ export const NavigationButton = styled.button`
     }
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(NavLink)`
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 
+    & span {
+        margin-left: 20px;
+        font-family: var(--secondaryFont);
+        font-size: 18px;
+        line-height: 27px;
+        color: var(--black);
+    }
 `;

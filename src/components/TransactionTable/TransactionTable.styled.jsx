@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
+
+export const TransactionTableWrapper = styled.div``;
 export const TransactionTableList = styled.ul`
-   
+
+   @media screen and (min-width: 1280px) {
+    width: 715px;
+   }
 `;
 export const TransactionTableItem = styled.li`
 
@@ -31,5 +36,8 @@ export const TransactionTableListHeader = styled.div`
         font-weight: var(--bold);
         font-size: 18px;
         line-height: 27px;
+    }
+    @media screen and (min-width: 1280px) {
+        width: 715px;
     }
 `;

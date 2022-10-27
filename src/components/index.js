@@ -13,3 +13,4 @@ export * from 'components/FullScreenLoader/FullScreenLoader';
 export * from 'components/DiagramTab/DiagramTab';
 export * from 'components/StatisticTable/StatisticTable';
 export * from 'components/DoughnutChart/DoughnutChart';
+export * from "components/LayoutComponentsBar/LayoutComponentsBar";

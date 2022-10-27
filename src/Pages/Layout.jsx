@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import { Section, Container, Header, NavigationBar } from "components";
-
+import { Section, Container, Header, LayoutComponentsBar } from "components";
+import Media from "react-media";
 
 
 
@@ -13,24 +13,35 @@ export const Layout = () => {
                     <Header/>
                 </Container>
             </Section>
-     
             
+            <main className="main"> 
+                <Media query="(max-width: 1279px)" render={() =>
+                    (
+                        <>
+                            <Section className="section layout-section">
+                                <Container className="container layout-container">   
+                                    <LayoutComponentsBar/>
+                                </Container>
+                            </Section>
 
-            <nav>
-                <Container className="container navigation-container">
-                    <NavigationBar/>
-                </Container>
-            </nav>
+                            <Outlet/>
+                        </>
+                    )}
+                />
 
-            <main className="main">
-                    {/* <button type="button" style={{width: 60, height: 60, backgroundColor: "green", }} onClick={async () => {
-                       const response = await axios.get("https://eyeshield-wallet-server-app.herokuapp.com/transactions/all");
 
-                       console.log(response.data)
-                    }}></button> */}
-                <Outlet/>
+                <Media query="(min-width: 1280px)" render={() =>
+                    (
+                        <Section className="section">
+                            <Container className="container" style={{display: "flex"}}>   
+                                <LayoutComponentsBar/>
+                                <Outlet/>
+                            </Container>
+                        </Section>
+                    )}
+                />
             </main>
-
+            
 
             <footer></footer>
         </>
