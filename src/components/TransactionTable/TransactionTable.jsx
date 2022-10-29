@@ -14,11 +14,11 @@ export const TransactionTable = () => {
         <Media query="(min-width: 768px)" render={() =>
           (
             <TransactionTableListHeader>
-                <span className='transaction__tittle date'>Date</span>
-                <span className='transaction__tittle type'>Type</span>
-                <span className='transaction__tittle category'>Category</span>
-                <span className='transaction__tittle comment'>Comment</span>
-                <span className='transaction__tittle sum'>Sum</span>
+                <span className='transaction__tittle date' style={{marginRight: "72px"}}>Date</span>
+                <span className='transaction__tittle type' style={{marginRight: "47px"}}>Type</span>
+                <span className='transaction__tittle category' style={{marginRight: "75px"}}>Category</span>
+                <span className='transaction__tittle comment' style={{marginRight: "95px"}}>Comment</span>
+                <span className='transaction__tittle sum' style={{marginRight: "69px"}}>Sum</span>
                 <span className='transaction__tittle balance'>Balance</span>
             </TransactionTableListHeader>
           )}

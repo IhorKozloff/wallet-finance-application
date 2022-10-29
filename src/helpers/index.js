@@ -4,3 +4,4 @@ export * from "./sumConverter";
 export * from "./colorizedCategory";
 export * from "./createChartDoughnutData";
 export * from "./secureLabelCreator";
+export * from "./addZeroInStart";

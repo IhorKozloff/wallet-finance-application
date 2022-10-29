@@ -19,10 +19,10 @@ const user = createReducer(
             state.token = action.payload.token;
         },
 
-        [fetchLogout.fulfilled]: state => {
-            state.name = null;
-            state.email = null;
-            state.token = null;
+        [fetchLogout.fulfilled]: (state, action) => state = {
+            name: null,
+            email: null,
+            token: null
         },
 
     },

@@ -33,7 +33,7 @@ export const Layout = () => {
                 <Media query="(min-width: 1280px)" render={() =>
                     (
                         <Section className="section">
-                            <Container className="container" style={{display: "flex"}}>   
+                            <Container className="container" style={{display: "flex", paddingBottom: '47px'}}>   
                                 <LayoutComponentsBar/>
                                 <Outlet/>
                             </Container>

@@ -1,0 +1,1 @@
+export const addZeroInStart = (date) => `${date}`.length === 1 ? `0${date}` : date;

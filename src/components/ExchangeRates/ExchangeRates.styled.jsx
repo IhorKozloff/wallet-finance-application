@@ -8,7 +8,7 @@ export const ExchangeRatesWrapper = styled.div`
     overflow: hidden;
 
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
         width: 336px;
     }
 `;
@@ -53,6 +53,7 @@ export const ExchangeRatesContent = styled.ul`
     }
     @media screen and (min-width: 1280px) {
         height: 287px;
+        padding: 12px 61px 16px 58px;
     }
 `;
 

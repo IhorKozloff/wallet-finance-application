@@ -1,12 +1,14 @@
 
 import { createReducer, combineReducers } from "@reduxjs/toolkit";
 import { fetchAllTransactions, fetchCategories } from "./transactionsOperations";
+import { fetchLogout } from "./authOperations";
 
 const transactions = createReducer([],{
 
     [fetchAllTransactions.fulfilled]: (state, action) => {
         return state = action.payload;
-    }
+    },
+    [fetchLogout.fulfilled]:  state => state = []
 
 });
 
@@ -39,6 +41,10 @@ const categories = createReducer({
         state.incomeData = action.payload.income
         state.expenseData = action.payload.expense
         
+    },
+    [fetchLogout.fulfilled]:  state => {
+        state.incomeData = []
+        state.expenseData = 0
     }
 })
 

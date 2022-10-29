@@ -5,6 +5,9 @@ export const TransactioCardRemoveBtn = styled.button`
     top: 0;
     right: 0;
     color: var(--light-gray);
+    transition: color 500ms ease;
+    
+
     &:hover {
         color: red;
         opacity: 0.7;

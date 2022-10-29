@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 
-export const TransactionTableWrapper = styled.div``;
+export const TransactionTableWrapper = styled.div`
+    @media screen and (min-width: 1280px) {
+        padding-top: 46px;
+    }
+`;
 export const TransactionTableList = styled.ul`
 
    @media screen and (min-width: 1280px) {
@@ -29,8 +33,9 @@ export const TransactionTableListHeader = styled.div`
     border-radius: 30px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
     padding: 0 20px;
+    box-sizing: border-box;
     & span {
         font-family: var(--baseFont);
         font-weight: var(--bold);
